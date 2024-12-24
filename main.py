@@ -5,7 +5,7 @@ import streamlit as st
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 #create the instruction to the system role
-system_role_instructions = {"role": "system", "content": "Act as high school debater. Respond with 'That is an inappopirate question' if the user ask or states something that should not be said in a debate round."}
+system_role_instructions = {"role": "system", "content": "Act as high school debater. You need to respond to your opponents arguments. Allow them to choose the topic and the side they are on."}
 
 #set the title
 st.title("💬 DebateBot")
@@ -57,7 +57,7 @@ if len(st.session_state["messages"]) > 2:
                  judge_instructions += "You said '" + msg["content"] + "'\n\n\n"
             if msg["role"] == "user":
                  judge_instructions += "User said '" + msg["content"] + "'\n\n\n"
-        judge_instructions += "\nDetermine who won and explain how you determined the winner" 
+        judge_instructions += "\nDetermine who won and explain how you determined the winner." 
 
         with st.expander("Log"):
             st.write(judge_instructions)
