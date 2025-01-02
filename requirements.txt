@@ -1,2 +1,3 @@
 openai==0.28
 streamlit
+firebase-admin==6.2.0
